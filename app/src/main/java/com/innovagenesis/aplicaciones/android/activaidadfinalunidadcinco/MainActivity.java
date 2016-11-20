@@ -3,12 +3,16 @@ package com.innovagenesis.aplicaciones.android.activaidadfinalunidadcinco;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity
 
     private Toolbar toolbar;
     private String[] etiquetaSubMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,8 +122,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        int positionArray = 0;
-
+        int positionArray;
 
         switch (id) {
             /** Selector de fragmentos del Drawer*/
@@ -137,11 +141,36 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_tweeter:
                 positionArray = 4;
                 break;
+            default:
+                positionArray = 0;
+                break;
         }
+
+        /** Inicializa el color */
+
+        @SuppressLint("Recycle")
+        TypedArray arrayColorToolbar = getResources().obtainTypedArray(R.array.colorToolbar);
+
+        @SuppressWarnings("ResourceType")
+                /** Se suprime alerta dado que el error no es consistente*/
+        int color = arrayColorToolbar.getResourceId(positionArray, 0);
+        int cambiarColor = ContextCompat.getColor(getBaseContext(), color);
+
+        Drawable toolbarColor = new ColorDrawable(cambiarColor);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setBackgroundDrawable(toolbarColor);
+        }
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(cambiarColor);
+        }
+
 
         /** Cambia el titulo, subtitulo y color */
         toolbar.setTitle(getString(R.string.app_name));
         toolbar.setSubtitle(etiquetaSubMenu[positionArray]);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
