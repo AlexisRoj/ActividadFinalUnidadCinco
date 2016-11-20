@@ -10,17 +10,47 @@
      <string name="instragram">Instagram</string>
      <string name="google_plus">Google Plus</string>
      <string name="tweeter">Tweeter</string>
-     <string name="version_web">Versioón Web</string>
+     <string name="version_web">Versión Web</string>
      <string name="share">Compartir</string>
      <string name="configuracion">Confirguración</string>
 
 
-     <!--Lista de los menu-->
+     <!--Lista de los nombre de menu-->
+
      <string-array name="nombreMenu">
+         <item>Inicio</item>
          <item>Facebook</item>
          <item>Instagram</item>
-         <item>Google Plus!</item>
-         <item>Tweeter</item>
+         <item>Google Plus</item>
+         <item>Twitter</item>
      </string-array>
+
+     <array name="nombreImgMenu">
+         <item>@drawable/home</item>
+         <item>@drawable/facebook</item>
+         <item>@drawable/instagram</item>
+         <item>@drawable/plus</item>
+         <item>@drawable/tweeter</item>
+     </array>
+
+     <!-- Uri de los sitios del menu-->
+     <string-array name="uriMenu">
+         <item>blank/</item>
+         <item>https://www.facebook.com/</item>
+         <item>https://www.instagram.com</item>
+         <item>https://plus.google.com</item>
+         <item>https://twitter.com</item>
+     </string-array>
+
+     <!-- Colores Fragmentos / Categoria-->
+
+     <array name="colorToolbar">
+         <item>@color/colorToolBarHome</item>
+         <item>@color/colorToolBarFacebook</item>
+         <item>@color/colorToolBarInstangram</item>
+         <item>@color/colorToolBarPlus</item>
+         <item>@color/colorToolBarTwitter</item>
+
+     </array>
 
  </resources>
