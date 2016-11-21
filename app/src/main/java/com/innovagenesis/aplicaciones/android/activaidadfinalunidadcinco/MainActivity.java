@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity
         TypedArray arrayColorToolbar = getResources().obtainTypedArray(R.array.colorToolbar);
 
         @SuppressWarnings("ResourceType")
-                /** Se suprime alerta dado que el error no es consistente*/
+        /** Se suprime alerta dado que el error no es consistente*/
         int color = arrayColorToolbar.getResourceId(positionArray, 0);
         int cambiarColor = ContextCompat.getColor(getBaseContext(), color);
 
